@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Sora', sans-serif !important;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  /* background-color: #000; */
+  /* color: #fff; */
+  font-family: 'Sora', sans-serif !important;
+}
+
+.faq-section {
+  background-image: url('/faq_bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* how it works section style start*/
+.how-section {
+  position: relative;
+  background-color: #000;
+  background-image: url('/public/ai_image.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  overflow: hidden;
+}
+.how-section .container {
+  position: relative;
+  z-index: 1;
+}
+.how-badge {
+  background: linear-gradient(90deg, #7476ff 0%, #89c7fe 100%);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+.text-gradient {
+  background: linear-gradient(90deg, #7476ff 0%, #89c7fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.btn-register {
+  border-radius: 8px;
+  border: 0 solid #e5e7eb;
+  background: #c53bae;
+  box-shadow: 0 0 20px 0 rgba(59, 130, 246, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+.btn-register:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+.step-row {
+  border-radius: 22.5px 22.5px 0 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(11.25px);
+}
+.step-card {
+  text-align: left;
+  padding: 20px;
+}
+.step-card ::after {
+  content: '';
+  width: 0.75px;
+  height: 187.214px;
+  flex-shrink: 0;
+  color: black;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 0%,
+    #fff 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.step-num {
+  font-size: 2rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #7476ff, #89c7fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Custom 80% width container */
+.custom-container {
+  width: 58% !important;
+  margin-left: auto !important;
+  margin-right: 100px !important;
+}
+.custom-container1 {
+  width: 67% !important;
+  margin-left: auto !important;
+  margin-right: 100px !important;
+}
+.num-2 {
+-webkit-text-stroke-width: 0.75px;
+    -webkit-text-stroke-color: #CFDDDE;
+    font-family: Sora;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 31.5px;
+    color: transparent;
+}
+/* how it works section style end*/
