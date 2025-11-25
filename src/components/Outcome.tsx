@@ -10,16 +10,16 @@ export default function Outcome() {
   ];
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">
+    <section className='py-16 px-4 sm:px-6 lg:px-8 bg_brown'>
+      <div className='max-w-4xl mx-auto'>
+        <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center'>
           What You'll Walk Away With
         </h2>
-        <div className="space-y-4">
+        <div className='space-y-4'>
           {outcomes.map((outcome, index) => (
-            <div key={index} className="flex items-start">
-              <Star className="w-6 h-6 text-[#2563EB] mr-3 flex-shrink-0 mt-1 fill-current" />
-              <p className="text-lg text-gray-700">{outcome}</p>
+            <div key={index} className='flex items-start'>
+              <Star className='w-6 h-6 text-[#2563EB] mr-3 flex-shrink-0 mt-1 fill-current' />
+              <p className='text-lg text-gray-700'>{outcome}</p>
             </div>
           ))}
         </div>

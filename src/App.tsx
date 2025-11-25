@@ -20,7 +20,7 @@ function App() {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className='min-h-screen bg-white'>
       {/* <Header /> */}
       <Hero onOpenModal={openModal} />
       <AIFuture />
@@ -29,7 +29,7 @@ function App() {
       {/* <HowItWorks/> */}
       <Outcome />
       <Bonus />
-      <About />
+      {/* <About /> */}
       <WhyAttend />
       <NoRecordings onOpenModal={openModal} />
       <FAQ />

@@ -14,6 +14,15 @@ body {
   font-family: 'Sora', sans-serif !important;
 }
 
+.bg_gray {
+  background-color: #f7f5f4;
+}
+.bg_brown {
+  background-color: #872e2e1a;
+}
+.gradient1 {
+  background: linear-gradient(90deg, #111827 0%, #581c87 50%, #111827 100%);
+}
 .faq-section {
   background-image: url('/faq_bg.png');
   background-repeat: no-repeat;
@@ -102,13 +111,25 @@ body {
   margin-right: 100px !important;
 }
 .num-2 {
--webkit-text-stroke-width: 0.75px;
-    -webkit-text-stroke-color: #CFDDDE;
-    font-family: Sora;
-    font-size: 45px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 31.5px;
-    color: transparent;
+  -webkit-text-stroke-width: 0.75px;
+  -webkit-text-stroke-color: #cfddde;
+  font-family: Sora;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 31.5px;
+  color: transparent;
 }
-/* how it works section style end*/
+
+.about_bg_card {
+  box-shadow: 0 0 20px 0 rgba(59, 130, 246, 0.5);
+  transition: 0.3s ease-in-out;
+  border-radius: 16px;
+  background: white;
+}
+
+@media (min-width: 768px) {
+  .w-m-content {
+    width: max-content;
+  }
+}

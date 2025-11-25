@@ -62,44 +62,47 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
   //     companyName: '',
   //   });
   // };
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  const payload = {
-    name: formData.fullName,
-    email_id: formData.email,
-    mobile_number: formData.phone,
-    company_name: formData.companyName,
-  };
+    const payload = {
+      name: formData.fullName,
+      email_id: formData.email,
+      mobile_number: formData.phone,
+      company_name: formData.companyName,
+    };
 
-  try {
-    const response = await fetch("https://technokeylearning.com/tkl_contact/api/contact-submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
+    try {
+      const response = await fetch(
+        'https://technokeylearning.com/tkl_contact/api/contact-submit',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
-    const data = await response.json();
-    console.log("API Response:", data);
+      const data = await response.json();
+      console.log('API Response:', data);
 
-    if (response.ok) {
-      setShowSuccess(true); // success UI
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        companyName: "",
-      });
-    } else {
-      alert("Failed to submit form. Please try again.");
+      if (response.ok) {
+        setShowSuccess(true); // success UI
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          companyName: '',
+        });
+      } else {
+        alert('Failed to submit form. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Something went wrong. Check console.');
     }
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Something went wrong. Check console.");
-  }
-};
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -112,119 +115,134 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 transition-opacity duration-300"
+      className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 transition-opacity duration-300'
       onClick={handleBackdropClick}
       aria-hidden={!isOpen}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-title"
+      role='dialog'
+      aria-modal='true'
+      aria-labelledby='modal-title'
     >
       <div
         ref={modalRef}
-        className="bg-white rounded-xl shadow-2xl max-w-md w-full p-8 relative animate-fade-in"
+        className='bg-white rounded-xl shadow-2xl max-w-md w-full p-8 relative animate-fade-in'
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
-          aria-label="Close modal"
+          className='absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors'
+          aria-label='Close modal'
         >
-          <X className="w-6 h-6" />
+          <X className='w-6 h-6' />
         </button>
 
         {showSuccess ? (
-          <div className="text-center py-8">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className='text-center py-8'>
+            <div className='w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4'>
               <svg
-                className="w-8 h-8 text-green-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+                className='w-8 h-8 text-green-500'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
                   strokeWidth={2}
-                  d="M5 13l4 4L19 7"
+                  d='M5 13l4 4L19 7'
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <h3 className='text-2xl font-bold text-gray-900 mb-2'>
               Thank you! Your seat is reserved.
             </h3>
           </div>
         ) : (
           <>
-            <h2 id="modal-title" className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            <h2
+              id='modal-title'
+              className='text-2xl font-bold text-gray-900 mb-6 text-center'
+            >
               Register for Free Masterclass
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className='space-y-4'>
               <div>
-                <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
-                  Full Name <span className="text-red-500">*</span>
+                <label
+                  htmlFor='fullName'
+                  className='block text-sm font-medium text-gray-700 mb-1'
+                >
+                  Full Name <span className='text-red-500'>*</span>
                 </label>
                 <input
                   ref={firstInputRef}
-                  type="text"
-                  id="fullName"
-                  name="fullName"
+                  type='text'
+                  id='fullName'
+                  name='fullName'
                   value={formData.fullName}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all"
-                  placeholder="Enter your full name"
+                  className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all'
+                  placeholder='Enter your full name'
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email Address <span className="text-red-500">*</span>
+                <label
+                  htmlFor='email'
+                  className='block text-sm font-medium text-gray-700 mb-1'
+                >
+                  Email Address <span className='text-red-500'>*</span>
                 </label>
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
+                  type='email'
+                  id='email'
+                  name='email'
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all"
-                  placeholder="your.email@example.com"
+                  className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all'
+                  placeholder='your.email@example.com'
                 />
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                  Phone Number <span className="text-red-500">*</span>
+                <label
+                  htmlFor='phone'
+                  className='block text-sm font-medium text-gray-700 mb-1'
+                >
+                  Phone Number <span className='text-red-500'>*</span>
                 </label>
                 <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
+                  type='tel'
+                  id='phone'
+                  name='phone'
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all"
-                  placeholder="+91 XXXXX XXXXX"
+                  className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all'
+                  placeholder='+91 XXXXX XXXXX'
                 />
               </div>
 
               <div>
-                <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-1">
-                  Company Name <span className="text-gray-400">(Optional)</span>
+                <label
+                  htmlFor='companyName'
+                  className='block text-sm font-medium text-gray-700 mb-1'
+                >
+                  Company Name <span className='text-gray-400'>(Optional)</span>
                 </label>
                 <input
-                  type="text"
-                  id="companyName"
-                  name="companyName"
+                  type='text'
+                  id='companyName'
+                  name='companyName'
                   value={formData.companyName}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all"
-                  placeholder="Your company name"
+                  className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all'
+                  placeholder='Your company name'
                 />
               </div>
 
               <button
-                type="submit"
-                className="w-full bg-[#2563EB] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 mt-6"
+                type='submit'
+                className='w-full bg-[#2563EB] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 mt-6'
               >
                 Submit & Save My Seat
               </button>
