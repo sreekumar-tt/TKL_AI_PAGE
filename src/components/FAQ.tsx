@@ -80,6 +80,9 @@ export default function FAQ() {
           ))}
         </div>
       </div>
+       <p className="text-center mt-6 text-black-600 font-bold">
+      Enrollment Closes on <span className="text-blue-600 font-extrabold">5th December.</span>
+    </p>
     </section>
   );
 }
