@@ -142,7 +142,9 @@ export default function WhatYouLearn() {
                 {card.points.map((point, idx) => (
                   <li key={idx} className='text-gray-700 flex items-start'>
                     <span className='text-blue-600 mr-2 text-lg'>•</span>
-                    <span className=''>{point}</span>
+                    <span className='text-base font-medium text-gray-700'>
+                      {point}
+                    </span>
                   </li>
                 ))}
               </ul>
