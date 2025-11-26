@@ -57,7 +57,7 @@ export default function FAQ() {
                 onKeyDown={(e) => handleKeyPress(e, index)}
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
-                className='w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:ring-inset'
+                className='w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200 '
               >
                 <span className='font-semibold text-gray-900 pr-4'>
                   {faq.question}

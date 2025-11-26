@@ -45,7 +45,17 @@ export default function Hero({ onOpenModal }: HeroProps) {
         <div className='flex justify-center mt-6'>
           <button
             onClick={onOpenModal}
-            className='bg-[#2563EB] flex align-middle text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl'
+            className="
+    bg-gradient-to-r from-[#0A66C2] to-[#00C2FF]
+    hover:from-[#00C2FF] hover:to-[#0A66C2]
+    text-white font-bold text-xl
+    px-10 py-4 rounded-full
+    shadow-[0_0_30px_rgba(0,194,255,0.5)]
+    hover:shadow-[0_10px_40px_rgba(0,194,255,0.7)]
+    transition-all duration-300
+    hover:-translate-y-1
+    flex items-center gap-3
+  "
           >
             Register for the Free Masterclass
             <img
