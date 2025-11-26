@@ -106,7 +106,8 @@ export default function WhatYouLearn() {
   ];
 
   return (
-    <section className='py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a975680] via-[#6A39FF] to-[#FF4FD8]'>
+    // bg-gradient-to-br from-[#0a975680] via-[#6A39FF] to-[#FF4FD8]
+    <section className='py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0A66C2] to-[#00C2FF] '>
       <div className='max-w-7xl mx-auto'>
         <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center'>
           What You Will Learn
@@ -122,7 +123,7 @@ export default function WhatYouLearn() {
                 border border-transparent 
                 transition-all duration-300 
                 hover:shadow-xl hover:scale-[1.03]
-                hover:border-blue-400 hover:bg-blue-50/30
+                hover:border-blue-400 hover:bg-slate-100
               
               '
             >

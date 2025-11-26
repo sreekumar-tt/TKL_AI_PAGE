@@ -25,7 +25,7 @@ function App() {
       {/* <Header /> */}
       <Hero onOpenModal={openModal} />
       <AIFuture />
-      <WhoIsThisFor />
+      {/* <WhoIsThisFor /> */}
       <WhatYouLearn />
       {/* <HowItWorks/> */}
       <Outcome />
@@ -34,7 +34,7 @@ function App() {
       <WhyAttend />
       <NoRecordings onOpenModal={openModal} />
       <FAQ />
-      <AiSection/>
+      <AiSection />
       <Modal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );

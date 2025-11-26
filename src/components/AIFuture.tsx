@@ -1,63 +1,89 @@
-// export default function AIFuture() {
-//   return (
-//     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-//       <div className="max-w-4xl mx-auto">
-//         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-center">
-//           AI Is Becoming the Most Valuable Skill of 2025 — And Those Who Learn It Early Get the Biggest Advantage.
-//         </h2>
-//         <p className="text-lg text-gray-600 leading-relaxed text-center">
-//           Whether you're an entrepreneur trying to scale without adding more workload… a solopreneur juggling multiple responsibilities… or a professional looking to stay relevant and increase efficiency… this free 4-hour masterclass will show you exactly how to use AI to automate repetitive tasks, improve output, and build your own AI tools — without needing technical skills.
-//         </p>
-//       </div>
-//     </section>
-//   );
-// }
-export default function AIFuture() {
+import { Brain, Bot, Sparkles, Cpu } from 'lucide-react';
+
+// Child component
+const AIFuture = ({
+  title = 'AI Fundamentals & Core Concepts',
+  description = 'Understand the basics of AI, Machine Learning, and how they are transforming industries.',
+  icon = null,
+}) => {
   return (
-    <section
+    <div
       className='
-        py-16 px-4 sm:px-6 lg:px-8
-        bg-[#111827]
-        relative
-      
+        bg-white p-9 rounded-3xl 
+        shadow-[0_12px_24px_rgba(10,102,194,0.1)]
+        hover:-translate-y-3 transition-transform duration-300
+        border-t-4 border-transparent 
+        bg-gradient-to-b from-white to-white bg-origin-border
       '
+      style={{
+        backgroundImage:
+          'linear-gradient(white, white), linear-gradient(135deg, rgb(10,102,194) 0%, rgb(0,194,255) 100%)',
+        backgroundOrigin: 'border-box',
+        backgroundClip: 'padding-box, border-box',
+      }}
     >
-      <div
-        className='
-          max-w-4xl mx-auto 
-          bg-white/20 backdrop-blur-xl 
-          p-4 md:p-10 rounded-3xl shadow-xl 
-          transition-all duration-300
-          hover:bg-white/30 hover:shadow-2xl
-        '
-      >
-        <h2
-          className='
-            text-3xl sm:text-4xl font-bold text-white 
-            mb-6 text-center 
-            transition duration-300 
-            hover:text-white/90 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]
-          '
-        >
+      {/* Icon */}
+      <div className='w-12 h-12 mb-5 text-[#0A66C2]'>{icon}</div>
+
+      {/* Title */}
+      <h3 className='text-xl font-extrabold mb-4 text-[#0A66C2]'>{title}</h3>
+
+      {/* Description */}
+      <p className='text-gray-700 leading-relaxed'>{description}</p>
+    </div>
+  );
+};
+
+// Parent component
+const AIFutureSection = () => {
+  return (
+    <>
+      <section className='bg-[#F4F8FB] pt-8'>
+        {/* <h2 className='text-2xl sm:text-4xl font-extrabold text-center mb-4 text-[#0A66C2] sm:px-24'>
           AI Is Becoming the Most Valuable Skill of 2025 — And Those Who Learn
           It Early Get the Biggest Advantage.
+        </h2> */}
+        <h2 className='text-2xl sm:text-4xl font-extrabold text-center mb-4 text-[#0A66C2] sm:px-22 leading-snug'>
+          <span className='block'>
+            “AI Is Becoming the Most Valuable Skill of 2025”
+          </span>
+          <span className='block'>
+            “And Those Who Learn It Early Get the Biggest Advantage.”
+          </span>
         </h2>
 
-        <p
-          className='
-            text-lg text-white/90 leading-relaxed text-center 
-            transition duration-300
-            hover:text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.3)]
-          '
-        >
-          Whether you're an entrepreneur trying to scale without adding more
-          workload… a solopreneur juggling multiple responsibilities… or a
-          professional looking to stay relevant and increase efficiency… this
-          free 4-hour masterclass will show you exactly how to use AI to
-          automate repetitive tasks, improve output, and build your own AI tools
-          — without needing technical skills.
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 py-12 px-4 sm:px-6 lg:px-16'>
+          <AIFuture
+            title='Entrepreneurs'
+            description='Build smarter systems that let your business grow without adding to your workload.'
+            icon={<Brain className='w-12 h-12 text-[#0A66C2]' />}
+          />
+
+          <AIFuture
+            title='Solopreneurs'
+            description='juggling multiple responsibilities streamline workflows and boost efficiency.'
+            icon={<Bot className='w-12 h-12 text-[#0A66C2]' />}
+          />
+
+          <AIFuture
+            title='Coaches, consultants & agency owners'
+            description='Use AI to scale your services, attract better clients, and deliver results faster.'
+            icon={<Sparkles className='w-12 h-12 text-[#0A66C2]' />}
+          />
+
+          <AIFuture
+            title='Senior working professionals'
+            description='Leverage AI to boost productivity, stay competitive, and accelerate your career growth.'
+            icon={<Cpu className='w-12 h-12 text-[#0A66C2]' />}
+          />
+        </div>
+        <p className='text-lg text-[#0A66C2] text-center italic pb-6 font-bold'>
+          "If your work involves content, communication, customer support,
+          analysis, or repetitive tasks — this is for you."
         </p>
-      </div>
-    </section>
+      </section>
+    </>
   );
-}
+};
+
+export default AIFutureSection;

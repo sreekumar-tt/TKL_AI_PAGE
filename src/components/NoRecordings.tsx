@@ -12,7 +12,8 @@ export default function NoRecordings({ onOpenModal }: NoRecordingsProps) {
           <AlertCircle className='w-16 h-16 text-[#2563EB]' />
         </div>
         <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4'>
-          No Recordings Will Be Provided — Attend Live
+          No Recordings Will Be Provided —{' '}
+          <span className='text-[#2563EB]'>Attend Live</span>
         </h2>
         <p className='text-lg text-gray-600 mb-8'>
           This ensures high-quality interaction and maximum value.
