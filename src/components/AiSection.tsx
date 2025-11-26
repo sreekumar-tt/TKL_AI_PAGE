@@ -82,7 +82,7 @@ export default function AiSection({ onOpenModal }: AiSectionProps) {
       </p>
       <p className='text-center mt-2 text-black-600 font-bold'>
         Enrollment Closes on{' '}
-        <span className='text-blue-600 font-extrabold'>5th December.</span>
+        <span className='text-blue-900 font-extrabold'>5th December.</span>
       </p>
     </section>
   );
