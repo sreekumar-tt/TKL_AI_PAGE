@@ -8,7 +8,7 @@ export default function AiSection({ onOpenModal }: AiSectionProps) {
       {/* Heading */}
       <div className='text-center max-w-3xl mx-auto'>
         <h2 className='text-4xl md:text-5xl font-extrabold leading-tight'>
-          The AI Revolution <span className='text-black'>Won't Wait</span>
+          The AI Revolution <span className='text-blue-900 '>Won't Wait</span>
         </h2>
         <p className='text-white mt-4 text-lg'>
           Every day you delay, your competitors move one step ahead. The
