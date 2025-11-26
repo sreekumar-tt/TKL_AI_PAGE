@@ -1,4 +1,8 @@
-export default function AiSection() {
+interface AiSectionProps {
+  onOpenModal: () => void;
+}
+
+export default function AiSection({ onOpenModal }: AiSectionProps) {
   return (
     <section className='w-full bg-gradient-to-br from-[#0A66C2] to-[#00C2FF] text-white py-16 px-4 md:px-10 lg:px-20'>
       {/* Heading */}
@@ -48,7 +52,7 @@ export default function AiSection() {
       {/* CTA Button */}
       <div className='mt-14 flex justify-center'>
         <a
-          href='#'
+          onClick={onOpenModal}
           className='bg-blue-600 hover:bg-blue-700 transition-all text-white text-xl font-semibold px-10 py-4 rounded-full flex items-center gap-3 shadow-[0_0_20px_rgba(168,85,247,0.6)]'
         >
           Register for Free

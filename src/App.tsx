@@ -34,7 +34,7 @@ function App() {
       <WhyAttend />
       <NoRecordings onOpenModal={openModal} />
       <FAQ />
-      <AiSection />
+      <AiSection onOpenModal={openModal} />
       <Modal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
