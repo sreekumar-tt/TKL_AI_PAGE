@@ -80,12 +80,7 @@ export default function FAQ() {
           ))}
         </div>
       </div>
-      <p className='text-center mt-10 text-black-600 font-bold italic'>
-        Secure your spot and take the first step toward building your AI advantage.
-      </p>
-       <p className="text-center mt-2 text-black-600 font-bold">
-      Enrollment Closes on <span className="text-blue-600 font-extrabold">5th December.</span>
-    </p>
+     
     </section>
   );
 }

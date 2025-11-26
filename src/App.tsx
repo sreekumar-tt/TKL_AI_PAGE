@@ -11,6 +11,7 @@ import NoRecordings from './components/NoRecordings';
 import FAQ from './components/FAQ';
 // import Header from './components/Header';
 import Modal from './components/Modal';
+import AiSection from './components/AiSection';
 // import HowItWorks from './components/HowItWorks';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       <WhyAttend />
       <NoRecordings onOpenModal={openModal} />
       <FAQ />
+      <AiSection/>
       <Modal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
