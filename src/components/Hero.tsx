@@ -24,7 +24,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           webinar.
         </p>
         <div>
-          <p className='text-lg sm:text-xl text-blue-700 font-semibold mb-2 flex items-center gap-3 justify-center'>
+          <p className='text-lg sm:text-xl text-blue-700 font-semibold mb-2 flex flex-wrap items-center gap-3 justify-center'>
             <CalendarDays className='w-5 h-5' />
             December 6th
             <Clock className='w-5 h-5 ml-4' />
