@@ -9,21 +9,30 @@ interface FAQItem {
 export default function FAQ() {
   const faqs: FAQItem[] = [
     {
-      question: 'Is this workshop really free?',
-      answer: 'Yes, completely free.',
-    },
-    {
-      question: 'Do I need any technical knowledge?',
-      answer: 'Not at all. Everything is simplified for non-tech users.',
-    },
-    {
-      question: 'Will I get the recording?',
-      answer: 'No — recordings will NOT be provided.',
-    },
-    {
-      question: 'Will there be an offer at the end?',
+      question: 'Do I need any technical skills or coding knowledge?',
       answer:
-        'Yes, we will share details of an upcoming advanced AI program (optional).',
+        'Not at all.Everything in this masterclass is beginner-friendly and fully guided. If you can use WhatsApp and email, you can learn Al automation from this session.',
+    },
+    {
+      question:
+        "I've used ChatGPT before but I don't know what to type. Will this help?",
+      answer:
+        "Yes this masterclass is perfect for you.Most people struggle not because Al is hard, but because they don't know prompt engineering frameworks.You'll learn the exact prompt structures used by experts to get: ✓ High-quality outputs ✓ Accurate responses ✓ Business-ready results",
+    },
+    {
+      question: ' Will this session work for my business or profession?',
+      answer:
+        "If you're an entrepreneur, solopreneur, coach, consultant, freelancer, student, or working professional this session is made for you.If your work involves content, communication, planning, selling, or repetitive tasks, this will transform how you work.",
+    },
+    {
+      question: 'What exactly will I learn in the 4 hours?',
+      answer:
+        "You'll master: • Prompt Engineering 2.0 (advanced prompts) • Custom GPT creation for your business • Building a RAG customer support chatbot (no code) • Simple automations using AI workflows to save hours every day • A complete AI roadmap to scale your business in 2025",
+    },
+    {
+      question: 'Will there be any tasks to do during the session?',
+      answer:
+        "Yes - it's a hands-on, practical session.You'll work along with the trainer to build your own prompts, GPTs, chatbots, and workflows live.",
     },
   ];
 

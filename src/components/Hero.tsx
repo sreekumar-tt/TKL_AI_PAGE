@@ -4,16 +4,16 @@ interface HeroProps {
 import { CalendarDays, Clock, Languages, Monitor } from 'lucide-react';
 export default function Hero({ onOpenModal }: HeroProps) {
   return (
-    <section className='py-16 sm:py-20 px-4 sm:px-6 lg:min-h-screen lg:px-8 ]'>
+    <section className='py-12 sm:py-20 px-4 sm:px-6 lg:min-h-screen lg:px-8 ]'>
       <div className='max-w-4xl mx-auto text-center'>
-        <div className='flex items-center justify-center mb-4'>
+        <div className='flex items-center justify-center mb-6 sm:mb-8'>
           <img
             src='/Techno key logo-only key.png'
             alt='Technokey Learning Logo'
             className='h-12 w-auto'
           />
         </div>
-        <h1 className='text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6'>
+        <h1 className='text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 sm:mb-6'>
           Master AI in 4 Hours to Automate Your Work — What If AI Could Run Half
           Your Day?
         </h1>
@@ -24,12 +24,16 @@ export default function Hero({ onOpenModal }: HeroProps) {
           webinar.
         </p>
         <div>
-          <p className='text-lg sm:text-xl text-blue-700 font-semibold mb-2 flex flex-wrap items-center gap-3 justify-center'>
-            <CalendarDays className='w-5 h-5' />
+          <div className='text-lg sm:text-xl text-blue-700 font-semibold mb-2 flex flex-wrap items-center gap-3 justify-center'>
+           <div className='flex items-center'>
+            <CalendarDays className='w-5 h-5 mr-2' />
             December 6th
-            <Clock className='w-5 h-5 ml-4' />
+            </div>
+            <div  className='flex items-center'>
+            <Clock className='w-5 h-5 mr-2' />
             10 AM – 2 PM IST
-          </p>
+            </div>
+          </div>
 
           {/* Language + Mode */}
           <p className='text-lg sm:text-xl text-blue-700 font-semibold mb-6 flex items-center gap-3 justify-center'>

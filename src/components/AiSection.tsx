@@ -1,9 +1,14 @@
+import OneHourTimer from "./Timer";
+
 interface AiSectionProps {
   onOpenModal: () => void;
 }
 
 export default function AiSection({ onOpenModal }: AiSectionProps) {
   return (
+    <>
+    
+   
     <section className='w-full bg-gradient-to-r from-[#0A66C2] to-[#00C2FF] text-white py-16 px-4 md:px-10 lg:px-20'>
       {/* Heading */}
       <div className='text-center max-w-3xl mx-auto'>
@@ -82,8 +87,52 @@ export default function AiSection({ onOpenModal }: AiSectionProps) {
       </p>
       <p className='text-center mt-2 text-black-600 font-bold'>
         Enrollment Closes on{' '}
-        <span className='text-blue-900 font-extrabold'>5th December.</span>
+        <span className='text-blue-900 font-extrabold text-xl'>5th December.</span>
       </p>
     </section>
+    <div className="w-full bg-[#111] text-white py-4 px-4 sm:px-20 relative">
+
+
+  {/* <div className="w-full bg-green-700 text-white text-sm py-2 px-4 flex items-center gap-2">
+    <span className="w-2 h-2 bg-white rounded-full"></span>
+    <p>Richa registered 3 mins ago</p>
+  </div> */}
+
+  <div className="flex items-center justify-between mt-4">
+
+    <div>
+      <div className="flex items-center gap-3">
+        <p className="text-2xl  font-bold">
+          Free<span className="line-through ml-3">
+          ₹500 </span></p>
+        {/* <p className="text-lg line-through opacity-60">500</p> */}
+      </div>
+
+      {/* <p className="text-sm mt-1 opacity-80">
+        Offer ends in <span className="font-semibold">05:58</span>
+      </p> */}
+      <OneHourTimer />
+    </div>
+
+    <a
+      href="#"
+      className="
+    bg-gradient-to-r from-[#0A66C2] to-[#00C2FF]
+    hover:from-[#00C2FF] hover:to-[#0A66C2]
+    text-white font-bold text-xl
+    px-10 py-4 rounded-full
+    shadow-[0_0_30px_rgba(0,194,255,0.5)]
+    hover:shadow-[0_10px_40px_rgba(0,194,255,0.7)]
+    transition-all duration-300
+    hover:-translate-y-1
+    flex items-center justify-center gap-3
+  "
+    >
+       Enroll Now
+    </a>
+  </div>
+
+</div>
+ </>
   );
 }

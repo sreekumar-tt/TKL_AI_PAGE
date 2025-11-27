@@ -61,7 +61,7 @@ const AIFutureSection = () => {
 
           <AIFuture
             title='Solopreneurs'
-            description='juggling multiple responsibilities streamline workflows and boost efficiency.'
+            description='Juggling multiple responsibilities streamline workflows and boost efficiency.'
             icon={<Bot className='w-12 h-12 text-[#0A66C2]' />}
           />
 
