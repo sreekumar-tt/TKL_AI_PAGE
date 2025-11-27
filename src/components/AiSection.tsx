@@ -4,7 +4,7 @@ interface AiSectionProps {
 
 export default function AiSection({ onOpenModal }: AiSectionProps) {
   return (
-    <section className='w-full bg-gradient-to-br from-[#6FAFE3] to-[#64D2FF] text-white py-16 px-4 md:px-10 lg:px-20'>
+    <section className='w-full bg-gradient-to-r from-[#0A66C2] to-[#00C2FF] text-white py-16 px-4 md:px-10 lg:px-20'>
       {/* Heading */}
       <div className='text-center max-w-3xl mx-auto'>
         <h2 className='text-4xl md:text-5xl font-extrabold leading-tight'>

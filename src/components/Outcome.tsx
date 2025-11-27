@@ -13,7 +13,7 @@ export default function Outcome() {
     <section className='py-16 px-4 sm:px-6 lg:px-8 bg_gray'>
       <div className='max-w-4xl mx-auto'>
         <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center'>
-          What You'll Walk Away With
+          What You'll Walk Away With?
         </h2>
         <div className='space-y-4'>
           {outcomes.map((outcome, index) => (

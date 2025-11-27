@@ -6,7 +6,7 @@ interface NoRecordingsProps {
 
 export default function NoRecordings({ onOpenModal }: NoRecordingsProps) {
   return (
-    <section className='py-16 px-4 sm:px-6 lg:px-8 bg-[#F4F8FB] '>
+    <section className='py-16 px-4 sm:px-6 lg:px-8 bg-[#1e90ff57] '>
       <div className='max-w-4xl mx-auto text-center'>
         <div className='flex justify-center mb-6'>
           <AlertCircle className='w-16 h-16 text-[#2563EB]' />

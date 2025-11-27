@@ -69,7 +69,7 @@
 export default function WhatYouLearn() {
   const cards = [
     {
-      title: 'How to Create Better Prompts (Prompt Engineering 2.0)',
+      title: 'How to Create Better Prompts (Prompt eng 2.0)',
       points: [
         'The psychology behind powerful prompts',
         '2 proven frameworks used by top AI experts',
@@ -129,11 +129,11 @@ export default function WhatYouLearn() {
             >
               {/* <div className="flex"> */}
               {/* <img src="/live1.png" alt="arrow" className="" /> */}
-              <h3 className='text-xl font-bold text-gray-900 mb-4 sm:flex w-m-content '>
+              <h3 className='text-xl font-bold text-gray-900 mb-4 flex flex-wrap items-center '>
                 <img
                   src='/live1.png'
                   alt='arrow'
-                  className='me-2 hidden sm:block'
+                  className='me-2 hidden lg:block'
                 />
                 {card.title}
               </h3>
