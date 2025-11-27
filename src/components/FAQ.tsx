@@ -80,7 +80,7 @@ export default function FAQ() {
               <div
                 id={`faq-answer-${index}`}
                 className={`transition-all duration-200 ease-in-out overflow-hidden ${
-                  openIndex === index ? 'max-h-40' : 'max-h-0'
+                  openIndex === index ? 'max-h-70' : 'max-h-0'
                 }`}
               >
                 <div className='px-6 pb-4 text-gray-600'>{faq.answer}</div>
