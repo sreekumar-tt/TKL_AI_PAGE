@@ -4,7 +4,7 @@ interface HeroProps {
 import { CalendarDays, Clock, Languages, Monitor } from 'lucide-react';
 export default function Hero({ onOpenModal }: HeroProps) {
   return (
-    <section className='py-16 sm:py-20 px-4 sm:px-6 md:min-h-screen lg:px-8 ]'>
+    <section className='py-16 sm:py-20 px-4 sm:px-6 lg:min-h-screen lg:px-8 ]'>
       <div className='max-w-4xl mx-auto text-center'>
         <div className='flex items-center justify-center mb-4'>
           <img
