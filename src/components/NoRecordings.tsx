@@ -19,9 +19,9 @@ export default function NoRecordings({ onOpenModal }: NoRecordingsProps) {
           This ensures high-quality interaction and maximum value.
         </p>
         <div className='flex justify-center'>
-        <button
-          onClick={onOpenModal}
-           className="
+          <button
+            onClick={onOpenModal}
+            className='
     bg-gradient-to-r from-[#0A66C2] to-[#00C2FF]
     hover:from-[#00C2FF] hover:to-[#0A66C2]
     text-white font-bold text-xl
@@ -31,10 +31,10 @@ export default function NoRecordings({ onOpenModal }: NoRecordingsProps) {
     transition-all duration-300
     hover:-translate-y-1
     flex items-center justify-center gap-3
-  "
-        >
-          Register for the Free Masterclass
-        </button>
+  '
+          >
+            Register for the Free Masterclass
+          </button>
         </div>
       </div>
     </section>

@@ -15,6 +15,8 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
     email: '',
     phone: '',
     companyName: '',
+    type_of_role: '',
+    location: '',
   });
 
   useEffect(() => {
@@ -29,6 +31,8 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
         email: '',
         phone: '',
         companyName: '',
+        type_of_role: '',
+        location: '',
       });
     }
 
@@ -70,6 +74,8 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
       email_id: formData.email,
       mobile_number: formData.phone,
       company_name: formData.companyName,
+      type_of_role: formData.type_of_role,
+      location: formData.location,
     };
 
     try {
@@ -94,6 +100,8 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
           email: '',
           phone: '',
           companyName: '',
+          type_of_role: '',
+          location: '',
         });
       } else {
         alert('Failed to submit form. Please try again.');
@@ -239,7 +247,33 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                   placeholder='Your company name'
                 />
               </div>
-
+              <div>
+                <label className='block text-sm font-medium text-gray-700 mb-1'>
+                  Designation <span className='text-gray-400'>(Optional)</span>
+                </label>
+                <input
+                  type='text'
+                  name='type_of_role'
+                  value={formData.type_of_role}
+                  onChange={handleChange}
+                  className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB]'
+                  placeholder='Eg: CEO, Executive Director, Managing Director'
+                />
+              </div>
+              <div>
+                <label className='block text-sm font-medium text-gray-700 mb-1'>
+                  Location <span className='text-red-500'>*</span>
+                </label>
+                <input
+                  type='text'
+                  name='location'
+                  value={formData.location}
+                  onChange={handleChange}
+                  required
+                  className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB]'
+                  placeholder='City Name (Eg: Coimbatore)'
+                />
+              </div>
               <button
                 type='submit'
                 className='w-full bg-[#2563EB] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 mt-6'

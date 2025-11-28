@@ -16,8 +16,12 @@ export default function FAQ() {
     {
       question:
         "I've used ChatGPT before but I don't know what to type. Will this help?",
-      answer:
-        "Yes this masterclass is perfect for you.Most people struggle not because Al is hard, but because they don't know prompt engineering frameworks.You'll learn the exact prompt structures used by experts to get: ✓ High-quality outputs ✓ Accurate responses ✓ Business-ready results",
+      answer: ` Yes this masterclass is perfect for you.Most people struggle not because Al is hard, but because they don't know prompt engineering frameworks.You'll learn the exact prompt structures used by experts to get: 
+          <ul class="list-disc pl-5 mt-2">
+          <li> High-quality outputs </li>
+           <li>  Accurate responses  </li>
+            <li> Business-ready results </li>
+    </ul>`,
     },
     {
       question: ' Will this session work for my business or profession?',
@@ -26,8 +30,16 @@ export default function FAQ() {
     },
     {
       question: 'What exactly will I learn in the 4 hours?',
-      answer:
-        "You'll master: • Prompt Engineering 2.0 (advanced prompts) • Custom GPT creation for your business • Building a RAG customer support chatbot (no code) • Simple automations using AI workflows to save hours every day • A complete AI roadmap to scale your business in 2025",
+      answer: `
+    You'll master:
+    <ul class="list-disc pl-5 mt-2">
+      <li>Prompt Engineering 2.0 (advanced prompts)</li>
+      <li>Custom GPT creation for your business</li>
+      <li>Building a RAG customer support chatbot (no code)</li>
+      <li>Simple automations using AI workflows to save hours every day</li>
+      <li>A complete AI roadmap to scale your business in 2025</li>
+    </ul>
+  `,
     },
     {
       question: 'Will there be any tasks to do during the session?',
@@ -83,7 +95,10 @@ export default function FAQ() {
                   openIndex === index ? 'max-h-70' : 'max-h-0'
                 }`}
               >
-                <div className='px-6 pb-4 text-gray-600'>{faq.answer}</div>
+                <div
+                  className='px-6 pb-4 text-gray-600'
+                  dangerouslySetInnerHTML={{ __html: faq.answer }}
+                ></div>
               </div>
             </div>
           ))}

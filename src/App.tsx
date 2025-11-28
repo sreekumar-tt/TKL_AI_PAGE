@@ -1,11 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Hero from './components/Hero';
 import AIFuture from './components/AIFuture';
-import WhoIsThisFor from './components/WhoIsThisFor';
 import WhatYouLearn from './components/WhatYouLearn';
 import Outcome from './components/Outcome';
 import Bonus from './components/Bonus';
-import About from './components/About';
 import WhyAttend from './components/WhyAttend';
 import NoRecordings from './components/NoRecordings';
 import FAQ from './components/FAQ';
@@ -16,14 +14,39 @@ import AiSection from './components/AiSection';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [schedule, setSchedule] = useState({
+    open_date: '',
+    close_date: '',
+  });
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  useEffect(() => {
+    const fetchSchedule = async () => {
+      try {
+        const res = await fetch(
+          'https://technokeylearning.com/tkl_contact/api/process-schedule'
+        );
+        const data = await res.json();
 
+        if (data.status && data.data.length > 0) {
+          const s = data.data[0];
+          setSchedule({
+            open_date: s.open_date,
+            close_date: s.close_date,
+          });
+        }
+      } catch (error) {
+        console.log('Schedule fetch error:', error);
+      }
+    };
+
+    fetchSchedule();
+  }, []);
   return (
     <div className='min-h-screen bg-white'>
       {/* <Header /> */}
-      <Hero onOpenModal={openModal} />
+      <Hero onOpenModal={openModal} schedule={schedule} />
       <AIFuture />
       {/* <WhoIsThisFor /> */}
       <WhatYouLearn />
@@ -34,7 +57,7 @@ function App() {
       <WhyAttend />
       <NoRecordings onOpenModal={openModal} />
       <FAQ />
-      <AiSection onOpenModal={openModal} />
+      <AiSection onOpenModal={openModal} schedule={schedule} />
       <Modal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );

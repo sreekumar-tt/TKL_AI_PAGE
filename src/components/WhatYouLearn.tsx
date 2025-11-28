@@ -69,7 +69,7 @@
 export default function WhatYouLearn() {
   const cards = [
     {
-      title: 'How to Create Better Prompts (Prompt eng 2.0)',
+      title: 'How to Create Better Prompts?',
       points: [
         'The psychology behind powerful prompts',
         '2 proven frameworks used by top AI experts',

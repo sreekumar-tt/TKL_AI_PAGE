@@ -1,8 +1,9 @@
 interface HeroProps {
   onOpenModal: () => void;
+  schedule: string;
 }
 import { CalendarDays, Clock, Languages, Monitor } from 'lucide-react';
-export default function Hero({ onOpenModal }: HeroProps) {
+export default function Hero({ onOpenModal, schedule }: HeroProps) {
   return (
     <section className='py-12 sm:py-20 px-4 sm:px-6 lg:min-h-screen lg:px-8 ]'>
       <div className='max-w-4xl mx-auto text-center'>
@@ -25,13 +26,13 @@ export default function Hero({ onOpenModal }: HeroProps) {
         </p>
         <div>
           <div className='text-lg sm:text-xl text-blue-700 font-semibold mb-2 flex flex-wrap items-center gap-3 justify-center'>
-           <div className='flex items-center'>
-            <CalendarDays className='w-5 h-5 mr-2' />
-            December 6th
+            <div className='flex items-center'>
+              <CalendarDays className='w-5 h-5 mr-2' />
+              {schedule.open_date}
             </div>
-            <div  className='flex items-center'>
-            <Clock className='w-5 h-5 mr-2' />
-            10 AM – 2 PM IST
+            <div className='flex items-center'>
+              <Clock className='w-5 h-5 mr-2' />
+              10 AM – 2 PM IST
             </div>
           </div>
 
@@ -49,7 +50,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
         <div className='flex justify-center mt-6'>
           <button
             onClick={onOpenModal}
-            className="
+            className='
     bg-gradient-to-r from-[#0A66C2] to-[#00C2FF]
     hover:from-[#00C2FF] hover:to-[#0A66C2]
     text-white font-bold text-xl
@@ -59,7 +60,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
     transition-all duration-300
     hover:-translate-y-1
     flex items-center gap-3
-  "
+  '
           >
             Register for the Free Masterclass
             <img
