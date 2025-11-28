@@ -17,6 +17,7 @@ export default function AiSection({ onOpenModal, schedule }: AiSectionProps) {
         setIsSticky(false);
       }
     };
+console.log(schedule, 'schedule');
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -101,7 +102,7 @@ export default function AiSection({ onOpenModal, schedule }: AiSectionProps) {
         <p className='text-center mt-2 text-black-600 font-bold'>
           Enrollment Closes on{' '}
           <span className='text-blue-900 font-extrabold text-xl'>
-            {schedule.close_date}
+            {schedule.end_date_text}
           </span>
         </p>
       </section>

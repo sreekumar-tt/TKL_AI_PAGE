@@ -15,8 +15,8 @@ import AiSection from './components/AiSection';
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [schedule, setSchedule] = useState({
-    open_date: '',
-    close_date: '',
+    open_date_text: '',
+    end_date_text: '',
   });
 
   const openModal = () => setIsModalOpen(true);
@@ -32,8 +32,8 @@ function App() {
         if (data.status && data.data.length > 0) {
           const s = data.data[0];
           setSchedule({
-            open_date: s.open_date,
-            close_date: s.close_date,
+            open_date_text: s.open_date_text,
+            end_date_text: s.end_date_text,
           });
         }
       } catch (error) {

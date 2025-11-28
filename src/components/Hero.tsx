@@ -28,7 +28,7 @@ export default function Hero({ onOpenModal, schedule }: HeroProps) {
           <div className='text-lg sm:text-xl text-blue-700 font-semibold mb-2 flex flex-wrap items-center gap-3 justify-center'>
             <div className='flex items-center'>
               <CalendarDays className='w-5 h-5 mr-2' />
-              {schedule.open_date}
+              {schedule.open_date_text}
             </div>
             <div className='flex items-center'>
               <Clock className='w-5 h-5 mr-2' />
