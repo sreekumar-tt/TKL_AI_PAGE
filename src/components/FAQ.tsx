@@ -25,8 +25,12 @@ export default function FAQ() {
     },
     {
       question: ' Will this session work for my business or profession?',
-      answer:
-        "If you're an entrepreneur, solopreneur, coach, consultant, freelancer, student, or working professional this session is made for you.If your work involves content, communication, planning, selling, or repetitive tasks, this will transform how you work.",
+      answer: `
+         <ul class="list-disc pl-5 mt-2">
+      <li>If you're an entrepreneur, solopreneur, coach, consultant, freelancer, student, or working professional this session is made for you.</li>
+       <li>If your work involves content, communication, planning, selling, or repetitive tasks, this will transform how you work.</li>
+       </ul>
+        `,
     },
     {
       question: 'What exactly will I learn in the 4 hours?',
