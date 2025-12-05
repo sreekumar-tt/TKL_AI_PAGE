@@ -12,29 +12,11 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
   const [showSuccess, setShowSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({
+    fullName: '',
     email: '',
     phone: '',
+    location: '',
   });
-  const validateFields = () => {
-    let valid = true;
-    const newErrors = { email: '', phone: '' };
-
-    // Phone: exactly 10 digits
-    if (!/^[0-9]{10}$/.test(formData.phone)) {
-      newErrors.phone = 'WhatsApp number must be 10 digits';
-      valid = false;
-    }
-
-    // Email: basic check
-    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      newErrors.email = 'Enter a valid email address';
-      valid = false;
-    }
-
-    setErrors(newErrors);
-    return valid;
-  };
-
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -80,20 +62,53 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
     }
   };
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   console.log('Form Data:', formData);
-  //   setShowSuccess(true);
-  //   setFormData({
-  //     fullName: '',
-  //     email: '',
-  //     phone: '',
-  //     companyName: '',
-  //   });
-  // };
+  const validateField = (name: string, value: string) => {
+    let error = '';
+
+    if (name === 'fullName') {
+      if (!value.trim()) error = 'Full name is required';
+    }
+
+    if (name === 'email') {
+      if (!value.trim()) error = 'Email is required';
+      else {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) error = 'Enter a valid email address';
+      }
+    }
+
+    if (name === 'phone') {
+      if (!value.trim()) error = 'WhatsApp number is required';
+      else {
+        const phoneRegex = /^[0-9]{10}$/;
+        if (!phoneRegex.test(value))
+          error = 'WhatsApp number must be exactly 10 digits';
+      }
+    }
+
+    if (name === 'location') {
+      if (!value.trim()) error = 'Location is required';
+    }
+
+    setErrors((prev) => ({ ...prev, [name]: error }));
+    return error === '';
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    // Clear error instantly when user starts fixing
+    setErrors((prev) => ({ ...prev, [name]: '' }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateFields()) return;
+    if (!validateField('fullName', formData.fullName)) return;
+    if (!validateField('email', formData.email)) return;
+    if (!validateField('phone', formData.phone)) return;
+    if (!validateField('location', formData.location)) return;
+
     setIsSubmitting(true);
     const payload = {
       name: formData.fullName,
@@ -129,27 +144,17 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
           type_of_role: '',
           location: '',
         });
+        setIsSubmitting(false);
       } else {
         alert('Failed to submit form. Please try again.');
+        setIsSubmitting(false);
       }
     } catch (error) {
       console.error('Error:', error);
       alert('Something went wrong. Check console.');
+      setIsSubmitting(false);
     }
   };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  //   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const value = e.target.value.replace(/\D/g, ''); // allow digits only
-  //   if (value.length <= 10) {
-  //     setFormData({ ...formData, phone: value });
-  //   }
-  // };
 
   if (!isOpen) return null;
 
@@ -218,10 +223,13 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                   name='fullName'
                   value={formData.fullName}
                   onChange={handleChange}
-                  required
+                  onBlur={(e) => validateField('fullName', e.target.value)}
                   className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all'
                   placeholder='Enter your full name'
                 />
+                {errors.fullName && (
+                  <p className='text-red-500 text-sm mt-1'>{errors.fullName}</p>
+                )}
               </div>
 
               <div>
@@ -237,7 +245,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                   name='email'
                   value={formData.email}
                   onChange={handleChange}
-                  required
+                  onBlur={(e) => validateField('email', e.target.value)}
                   className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all'
                   placeholder='your.email@example.com'
                 />
@@ -260,9 +268,9 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                   maxLength={10}
                   value={formData.phone}
                   onChange={handleChange}
-                  required
+                  onBlur={(e) => validateField('phone', e.target.value)}
                   className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all'
-                  placeholder='+91 XXXXX XXXXX'
+                  placeholder='XXXXX XXXXX'
                 />
                 {errors.phone && (
                   <p className='text-red-500 text-sm mt-1'>{errors.phone}</p>
@@ -308,10 +316,13 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                   name='location'
                   value={formData.location}
                   onChange={handleChange}
-                  required
+                  onBlur={(e) => validateField('location', e.target.value)}
                   className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB]'
                   placeholder='City Name (Eg: Coimbatore)'
                 />
+                {errors.location && (
+                  <p className='text-red-500 text-sm mt-1'>{errors.location}</p>
+                )}
               </div>
               <button
                 type='submit'
