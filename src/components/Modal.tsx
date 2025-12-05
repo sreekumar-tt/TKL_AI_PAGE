@@ -10,6 +10,8 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const firstInputRef = useRef<HTMLInputElement>(null);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -68,7 +70,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
   // };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+setIsSubmitting(true);
     const payload = {
       name: formData.fullName,
       email_id: formData.email,
@@ -276,9 +278,12 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
               </div>
               <button
                 type='submit'
-                className='w-full bg-[#2563EB] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 mt-6'
+                  disabled={isSubmitting}
+                // className='w-full bg-[#2563EB] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 mt-6'
+               className={`w-full bg-[#2563EB] text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 mt-6
+    ${isSubmitting ? 'opacity-60 cursor-not-allowed' : 'hover:bg-blue-700'}`}
               >
-                Submit & Save My Seat
+                  {isSubmitting ? 'Loading...' : 'Submit & Save My Seat'}
               </button>
             </form>
           </>
