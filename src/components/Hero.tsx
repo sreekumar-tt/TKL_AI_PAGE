@@ -39,7 +39,7 @@ export default function Hero({ onOpenModal, schedule }: HeroProps) {
           {/* Language + Mode */}
           <p className='text-lg sm:text-xl text-blue-700 font-semibold mb-6 flex items-center gap-3 justify-center'>
             <Languages className='w-5 h-5' />
-            Tamil
+           English
             <Monitor className='w-5 h-5 ml-4' />
             Live Online
           </p>

@@ -218,7 +218,7 @@ setIsSubmitting(true);
                   htmlFor='phone'
                   className='block text-sm font-medium text-gray-700 mb-1'
                 >
-                  Phone Number <span className='text-red-500'>*</span>
+                  WhatsApp Number <span className='text-red-500'>*</span>
                 </label>
                 <input
                   type='tel'
