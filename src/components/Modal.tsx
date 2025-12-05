@@ -11,6 +11,29 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
   const firstInputRef = useRef<HTMLInputElement>(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({
+    email: '',
+    phone: '',
+  });
+  const validateFields = () => {
+    let valid = true;
+    const newErrors = { email: '', phone: '' };
+
+    // Phone: exactly 10 digits
+    if (!/^[0-9]{10}$/.test(formData.phone)) {
+      newErrors.phone = 'WhatsApp number must be 10 digits';
+      valid = false;
+    }
+
+    // Email: basic check
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = 'Enter a valid email address';
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -70,7 +93,8 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
   // };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-setIsSubmitting(true);
+    if (!validateFields()) return;
+    setIsSubmitting(true);
     const payload = {
       name: formData.fullName,
       email_id: formData.email,
@@ -120,6 +144,12 @@ setIsSubmitting(true);
       [e.target.name]: e.target.value,
     });
   };
+  //   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const value = e.target.value.replace(/\D/g, ''); // allow digits only
+  //   if (value.length <= 10) {
+  //     setFormData({ ...formData, phone: value });
+  //   }
+  // };
 
   if (!isOpen) return null;
 
@@ -211,6 +241,9 @@ setIsSubmitting(true);
                   className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all'
                   placeholder='your.email@example.com'
                 />
+                {errors.email && (
+                  <p className='text-red-500 text-sm mt-1'>{errors.email}</p>
+                )}
               </div>
 
               <div>
@@ -224,12 +257,16 @@ setIsSubmitting(true);
                   type='tel'
                   id='phone'
                   name='phone'
+                  maxLength={10}
                   value={formData.phone}
                   onChange={handleChange}
                   required
                   className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all'
                   placeholder='+91 XXXXX XXXXX'
                 />
+                {errors.phone && (
+                  <p className='text-red-500 text-sm mt-1'>{errors.phone}</p>
+                )}
               </div>
 
               <div>
@@ -278,12 +315,12 @@ setIsSubmitting(true);
               </div>
               <button
                 type='submit'
-                  disabled={isSubmitting}
+                disabled={isSubmitting}
                 // className='w-full bg-[#2563EB] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 mt-6'
-               className={`w-full bg-[#2563EB] text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 mt-6
+                className={`w-full bg-[#2563EB] text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 mt-6
     ${isSubmitting ? 'opacity-60 cursor-not-allowed' : 'hover:bg-blue-700'}`}
               >
-                  {isSubmitting ? 'Loading...' : 'Submit & Save My Seat'}
+                {isSubmitting ? 'Loading...' : 'Submit & Save My Seat'}
               </button>
             </form>
           </>
