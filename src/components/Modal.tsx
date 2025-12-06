@@ -72,7 +72,8 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
     if (name === 'email') {
       if (!value.trim()) error = 'Email is required';
       else {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex =
+          /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net|edu|gov)(\.in)?$/;
         if (!emailRegex.test(value)) error = 'Enter a valid email address';
       }
     }
@@ -80,9 +81,9 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
     if (name === 'phone') {
       if (!value.trim()) error = 'WhatsApp number is required';
       else {
-        const phoneRegex = /^[0-9]{10}$/;
+        const phoneRegex = /^[6-9][0-9]{9}$/;
         if (!phoneRegex.test(value))
-          error = 'WhatsApp number must be exactly 10 digits';
+          error = 'Enter a valid 10-digit Indian mobile number';
       }
     }
 
@@ -96,6 +97,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({ ...prev, [name]: value }));
 
     // Clear error instantly when user starts fixing
@@ -271,6 +273,12 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                   onBlur={(e) => validateField('phone', e.target.value)}
                   className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2563EB] focus:border-transparent outline-none transition-all'
                   placeholder='XXXXX XXXXX'
+                  onInput={(e) => {
+                    e.currentTarget.value = e.currentTarget.value.replace(
+                      /[^0-9]/g,
+                      ''
+                    );
+                  }}
                 />
                 {errors.phone && (
                   <p className='text-red-500 text-sm mt-1'>{errors.phone}</p>
